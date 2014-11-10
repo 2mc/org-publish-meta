@@ -1,4 +1,3 @@
-
 ;;; org-pm.el --- Publish sections from org-mode to html and Jekyll
 
 (unless (boundp 'org-publish-project-alist)
@@ -1385,3 +1384,21 @@ This function is derived from org-toggle-coment."
 (provide 'org-pm)
 
 ;;; org-pm.el ends here
+
+(defun org-pm-remove-section-from-project ()
+  "Show menu for selecting a project definition from tags of current section.
+  Then remove selected project from tags of current section."
+  (interactive)
+  (save-excursion
+    (org-back-to-heading)
+    (let* ((tags (plist-get (cadr (org-element-at-point)) :tags))
+           (existing-projects
+            (-map (lambda (p) (car (org-pm-parse-tag p)))
+                  (-filter (lambda (tag) (string-match "^_.*_$" tag)) tags)))
+           (index (grizzl-make-index existing-projects))
+           (project (grizzl-completing-read "Select project to remove:" index)))
+     (org-set-tags-to
+      (-reject
+       (lambda (p) (equal (car (org-pm-parse-tag p)) project)) tags)))))
+
+

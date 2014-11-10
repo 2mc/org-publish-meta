@@ -1,7 +1,11 @@
 #+TODO: TODO UNDERWAY | DONE CANCELLED
 #+TITLE: Org-publish-meta: Easy projects for Org-mode
+#+PROPERTY: tangle yes
 
 * emacs-lisp file preamble
+:PROPERTIES:
+:ID:       395B9C38-4D25-4FC2-862B-6CD0CAE04CBA
+:END:
 
 #+BEGIN_SRC emacs-lisp
   ;;; org-pm.el --- Publish sections from org-mode to html and Jekyll
@@ -147,6 +151,9 @@ Set org-publish-project-alist to nil.  Save.
 :END:
 
 ** Ensure that org-publish-project-alist is defined
+:PROPERTIES:
+:ID:       60FB6FC9-AD6E-4E84-B20D-CE76016F2627
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (unless (boundp 'org-publish-project-alist)
@@ -154,6 +161,9 @@ Set org-publish-project-alist to nil.  Save.
 #+END_SRC
 
 ** UNDERWAY org-pm-auto-export-p
+:PROPERTIES:
+:ID:       715462D3-F482-4BD5-94A8-FB7B8DF95F8B
+:END:
 
 #+BEGIN_SRC emacs-lisp
     ;;;
@@ -194,6 +204,9 @@ CLOSED: [2013-12-18 Wed 15:23]
 #+END_SRC
 
 ** DONE org-pm-section-exports
+:PROPERTIES:
+:ID:       3F1B563E-A104-4AFF-9B63-DE22DB1AD8E6
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (defvar org-pm-section-exports nil
@@ -213,6 +226,9 @@ CLOSED: [2013-12-18 Wed 15:23]
 
 ** DONE org-pm-project-def-duplicates
 CLOSED: [2013-12-21 Sat 22:07]
+:PROPERTIES:
+:ID:       EC06191E-1FF5-44FA-8F40-BACF8137996E
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (defvar org-pm-project-def-duplicates nil
@@ -265,6 +281,9 @@ CLOSED: [2013-12-21 Sat 22:07]
 |--------------------------+---------------------------------------------|
 
 ** DONE org-pm-menu
+:PROPERTIES:
+:ID:       2A9EBFED-C1C3-48DB-A616-5FD5B06EAF51
+:END:
 
 Make menu for selecting and runing an org-pm command.
 
@@ -329,6 +348,9 @@ Make menu for selecting and runing an org-pm command.
 #+END_SRC
 
 ** DONE Keyboard shortcuts
+:PROPERTIES:
+:ID:       97678FE4-6996-49E0-B451-70DB5F3269DA
+:END:
 
 Note: I use the Hyper-m  (= Mac fn key m) as prefix, because it is not likely to be occupied by other packages.  Users can easily remap.
 
@@ -363,6 +385,9 @@ Note: I use the Hyper-m  (= Mac fn key m) as prefix, because it is not likely to
 #+END_SRC
 
 ** DONE org-pm-insert-new-project
+:PROPERTIES:
+:ID:       3E8393CF-FBFC-4314-94E1-1BFA681FEAF9
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (defun org-pm-insert-new-project (&optional project-name no-name-query no-query)
@@ -422,6 +447,9 @@ Note: I use the Hyper-m  (= Mac fn key m) as prefix, because it is not likely to
 
 
 ** DONE org-pm-make-projects
+:PROPERTIES:
+:ID:       4DA3B458-A7E2-4D5C-9BD4-BE32E502CF85
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (defun org-pm-make-projects (&optional do-not-save-now)
@@ -463,6 +491,9 @@ Note: I use the Hyper-m  (= Mac fn key m) as prefix, because it is not likely to
 *** Auxiliary functions for project parsing
 
 **** org-pm-parse-project-def
+:PROPERTIES:
+:ID:       633F9780-4C82-4C83-B37E-91CC609920EE
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (defun org-pm-parse-project-def (proj-node &optional template)
@@ -521,6 +552,9 @@ Note: I use the Hyper-m  (= Mac fn key m) as prefix, because it is not likely to
 #+END_SRC
 
 **** org-pm-check-add-project
+:PROPERTIES:
+:ID:       3CCFCA2E-C2EE-433D-B90E-FF98C942ABFA
+:END:
 #+BEGIN_SRC emacs-lisp
   (require 'dash)
   (defun org-pm-check-add-project (project)
@@ -575,6 +609,9 @@ Note: I use the Hyper-m  (= Mac fn key m) as prefix, because it is not likely to
 
 
 **** query-make-folder
+:PROPERTIES:
+:ID:       B23CAB0A-87DD-4390-9017-C275E56A0EDD
+:END:
 #+BEGIN_SRC emacs-lisp
   (defun query-make-folder (path &optional prompt-string)
     "If folder at path does not exist, then show dialog offering to user
@@ -598,6 +635,9 @@ Note: I use the Hyper-m  (= Mac fn key m) as prefix, because it is not likely to
 
 
 ** DONE org-pm-add-section-to-project
+:PROPERTIES:
+:ID:       D9C799D7-C449-44D7-8E10-83549898E34F
+:END:
 Add tag naming selected project to current section (node).
 
 If project name input by user does not correspond to an existing project, offer to create that project.
@@ -619,6 +659,9 @@ If project name input by user does not correspond to an existing project, offer 
 #+END_SRC
 
 *** org-pm-select-project-from-menu
+:PROPERTIES:
+:ID:       04CAC88B-45A6-4AF4-B1E1-DED560EC7CE4
+:END:
 
 Present menu for selecting one project from the list of known projects.  Utility function used by org-pm-add-section-to-project.
 
@@ -644,6 +687,7 @@ Present menu for selecting one project from the list of known projects.  Utility
 ** DONE org-pm-remove-section-from-project
 :PROPERTIES:
 :DATE:     <2014-01-13 Mon 08:43>
+:ID:       3B59C9A7-BC11-47F8-A951-444C5E0E9232
 :END:
 
 Remove tag naming selected project from current section (node).
@@ -666,6 +710,9 @@ Remove tag naming selected project from current section (node).
          (lambda (p) (equal (car (org-pm-parse-tag p)) project)) tags)))))
 #+END_SRC
 ** DONE org-pm-edit-project-tag-lists
+:PROPERTIES:
+:ID:       14414983-6905-456E-A93E-56D63AB93F07
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (defun org-pm-edit-project-tag-lists ()
@@ -696,6 +743,9 @@ Remove tag naming selected project from current section (node).
 ** exporting sections that match tags
 
 *** DONE org-pm-get-tag-matching-lists                 :ORG_PM_EXPORT_TAGS:
+:PROPERTIES:
+:ID:       CB214C95-BD56-422E-A74E-86F1F0D58E09
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (defun org-pm-get-tag-matching-lists ()
@@ -757,6 +807,10 @@ Remove tag naming selected project from current section (node).
 
 
 *** Examples of code to use                                       :orgmode:
+:PROPERTIES:
+:header-args: :tangle no
+:ID:       4E3814A4-3820-47A7-A2FB-29FB698C8D7B
+:END:
 
 #+BEGIN_SRC elisp
 (let (todo-only)
@@ -841,6 +895,9 @@ Test case for =org-pm-publish-buffer-to-html=.  Shows that it works if we initia
 #+END_SRC
 
 *** org-pm-export publish sections to html or source
+:PROPERTIES:
+:ID:       31CB0537-4AC3-47C4-B1C3-8F28D880A6D1
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (defun org-pm-export ()
@@ -911,6 +968,9 @@ Test case for =org-pm-publish-buffer-to-html=.  Shows that it works if we initia
 #+END_SRC
 
 *** Help function assoc-add2
+:PROPERTIES:
+:ID:       F54DA556-EFD7-42F7-8604-D6A384C1FEE2
+:END:
 #+BEGIN_SRC emacs-lisp
   (defun assoc-add2 (alist key element element2)
     "Add element to the sublist of alist which starts with key,
@@ -924,7 +984,10 @@ Test case for =org-pm-publish-buffer-to-html=.  Shows that it works if we initia
     alist)
  #+END_SRC
 
-*** COMMENT org-pm-export-1-section-to-projects (+ with-layout)
+*** org-pm-export-1-section-to-projects (+ with-layout)
+:PROPERTIES:
+:ID:       B1BFC6EF-A91A-4981-8C11-C9A1E66F3F2C
+:END:
 #+BEGIN_SRC emacs-lisp
   (defun org-pm-export-1-section-to-projects (section-with-paths origin-buffer)
     "Copy section to temporary buffer, then save it to all
@@ -1059,7 +1122,7 @@ Test case for =org-pm-publish-buffer-to-html=.  Shows that it works if we initia
 
 No longer used?:
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle no
 (defun org-pm-export-buffer-to-file (path-project)
   "path-project has the form (path . project-name).
    If path is not nil, save current buffer to path."
@@ -1077,6 +1140,9 @@ No longer used?:
 
 *** Making YAML front matter for Jekyll/Octopress
 **** org-pm-get-non-project-tags
+:PROPERTIES:
+:ID:       9B098514-EA06-4C8B-993C-1E61C7383C99
+:END:
 
 Get those tags which are not enclosed in underscore (=_=).
 Function org-pm-make-yaml-matter inserts these tags as part of the YAML matter in the file header for use by Jekyll/Octopress.
@@ -1098,6 +1164,9 @@ When headlines are present in an org buffer, org-export-as encloses the entire b
 This makes sure that when a file is copied to a subfolder of the publishing directory, the paths pointing to includes such as css, images, etc. will be converted to show to the root of the project, so that links work.  Such links must be marked using the string ={{.}}= to denote the relative root to the published project, that is, the =publishing-directory=.
 
 ****** YAML filter
+:PROPERTIES:
+:ID:       C31B31EE-F18B-41B1-A153-076DAE86E373
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (defun org-pm-add-yaml-front-matter (string backend info)
@@ -1125,6 +1194,9 @@ Get all sections marked with tags that are enclosed in underscore (=_=).  Parse 
 ...)
 
 ***** org-pm-section-project-paths version 1: using org-map-entries
+:PROPERTIES:
+:ID:       9390E864-125D-43EF-80F3-B7FBE9AA6866
+:END:
 #+BEGIN_SRC emacs-lisp
 
   (defun org-pm-get-section-project-paths ()
@@ -1168,6 +1240,9 @@ Get all sections marked with tags that are enclosed in underscore (=_=).  Parse 
 ***** org-pm-section-project-paths version 2: using org-scan-tags
 
 **** org-pm-get-1-section-project-paths
+:PROPERTIES:
+:ID:       5353C89D-B162-413B-AC22-9E31E29CC64A
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (defun org-pm-get-1-section-project-paths ()
@@ -1190,6 +1265,9 @@ Get all sections marked with tags that are enclosed in underscore (=_=).  Parse 
 #+END_SRC
 
 **** org-pm-get-section-projects
+:PROPERTIES:
+:ID:       F5048B46-38E8-4D23-948B-FC80FC340CBB
+:END:
 
 #+BEGIN_SRC emacs-lisp
 
@@ -1229,7 +1307,10 @@ Construct path for copying a file or section to, from list (project folder file)
 
 Called by org-get-section-components.  Converts the title of a section to a filename by replacing non-alphanumeric characters with dashes (=-=).  Also removes trailing timestamp from title.
 
-***** COMMENT Code
+***** Code
+:PROPERTIES:
+:ID:       E68D451C-585A-4F82-B254-AD92D898D37E
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (defun org-pm-parse-tag (tag &optional filename date)
@@ -1434,6 +1515,9 @@ categories:
 #+END_SRC
 
 **** org-pm-make-yaml-front-matter
+:PROPERTIES:
+:ID:       D18973BE-FA74-4CE4-82C1-E599EACD14D8
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (defun org-pm-make-yaml-front-matter (project-plist section-plist &optional layout)
@@ -1585,6 +1669,9 @@ Since a file containing org-pm tags can be anywhere outside an org-mode project 
 |-----------------------+----------------------------------------|
 
 ** DONE org-pm-show-project-definition-section
+:PROPERTIES:
+:ID:       C16A6A56-DF25-48EE-99D7-4F198CB64F4F
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (defun org-pm-show-project-definition-section ()
@@ -1601,6 +1688,9 @@ Since a file containing org-pm tags can be anywhere outside an org-mode project 
        (t (message "No project definitions were found in this file.")))))
 #+END_SRC
 ** DONE org-pm-edit-project-template
+:PROPERTIES:
+:ID:       B86A3E1D-7601-48BA-B89B-8EFA8CB2854A
+:END:
 
 Edit the file containing the global project template.
 Note that edits may cause conflicts when updating org-pm from git.
@@ -1614,6 +1704,9 @@ Note that edits may cause conflicts when updating org-pm from git.
 #+END_SRC
 
 ** DONE org-pm-source-file-menu
+:PROPERTIES:
+:ID:       CF19B775-1CBE-4BD5-8E6E-38054162E1A7
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (defun org-pm-source-file-menu ()
@@ -1627,6 +1720,9 @@ Note that edits may cause conflicts when updating org-pm from git.
 #+END_SRC
 
 ** DONE org-pm-target-file-menu
+:PROPERTIES:
+:ID:       4A03EA32-2E67-4B9F-BD8D-F1680A19099E
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (defun org-pm-target-file-menu ()
@@ -1644,6 +1740,9 @@ Note that edits may cause conflicts when updating org-pm from git.
 #+END_SRC
 
 ** DONE org-pm-show-source
+:PROPERTIES:
+:ID:       3F299993-9C2C-4756-8C2F-D1755C997138
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (defun org-pm-open-source-of-this-file ()
@@ -1674,6 +1773,9 @@ Note that edits may cause conflicts when updating org-pm from git.
 #+END_SRC
 
 ** UNDERWAY org-pm-open-target-of-this-section
+:PROPERTIES:
+:ID:       7310D78F-CCC1-4EE4-AEC8-FC7896B24E59
+:END:
 
 Needs rewriting to include tag match stuff.
 
@@ -1711,6 +1813,9 @@ Testing using file section lists
 
 ** DONE org-pm-list-project-definitions
 CLOSED: [2013-12-22 Sun 14:30]
+:PROPERTIES:
+:ID:       4FE037C1-4C48-41E1-A6BA-785A98F4E819
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (defun org-pm-list-project-definitions ()
@@ -1772,6 +1877,9 @@ CLOSED: [2013-12-22 Sun 14:30]
 
 *** DONE org-pm-search-link
 CLOSED: [2013-12-22 Sun 18:45]
+:PROPERTIES:
+:ID:       5A125E26-E18C-4998-BD26-A8A8596D259C
+:END:
 
 Currently, links to IDs that are not in org-link-locations are not found by org-mode.  =org-pm-search-link= finds such links by going to the file and then searching for the property with the id of the link.  It is used in org-pm-list-project-definitions to enable jumping to links of duplicate project defs.  It can also be used for the same purpose in lists of components.
 
@@ -1795,6 +1903,9 @@ Currently, links to IDs that are not in org-link-locations are not found by org-
 
 ** DONE org-pm-list-dupicate-project-defs
 CLOSED: [2013-12-22 Sun 12:21]
+:PROPERTIES:
+:ID:       44F915B8-E95B-4F25-86EE-D07059E39315
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (defun org-pm-list-duplicate-project-defs ()
@@ -1823,6 +1934,9 @@ CLOSED: [2013-12-22 Sun 12:21]
 #+END_SRC
 
 ** DONE pm/edit-duplicate-project-def
+:PROPERTIES:
+:ID:       BB05AE97-7696-4367-A385-EF2FC8CED7E0
+:END:
 
 Note: Naming this function org-pm-edit-duplicate-project-def disabled the auto-display of selections in the command line.  Something with org-mode recognizing names of functions and changing the meaning of completing-read?
 
@@ -1863,6 +1977,7 @@ Note: Naming this function org-pm-edit-duplicate-project-def disabled the auto-d
 ** DONE org-pm-post-project-def
 :PROPERTIES:
 :DATE:     <2014-01-05 Sun 19:11>
+:ID:       F45A4725-76C0-4F2A-90F4-AEF00564F173
 :END:
 
 Select a project interactively and post its definition.
@@ -1897,6 +2012,9 @@ Select a project interactively and post its definition.
 |-------------------------------|
 
 ** UNDERWAY File menu of exported sections
+:PROPERTIES:
+:ID:       0B9E9031-2297-48EF-B847-D609CC998DBD
+:END:
 #+BEGIN_SRC emacs-lisp
   (defun org-pm-list-exported-files (&optional all-p)
     "Create a list of paths of all files which the current file and its sections
@@ -1936,6 +2054,9 @@ Select a project interactively and post its definition.
 |--------------------------+---------------------------------------------|
 
 ** DONE org-pm-load-project-data
+:PROPERTIES:
+:ID:       BC7D1642-D35D-4EBA-AAA2-409920B03DCE
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (defun org-pm-load-project-data ()
@@ -1950,6 +2071,9 @@ Select a project interactively and post its definition.
 : org-pm-load-project-data
 
 ** DONE org-pm-save-project-data
+:PROPERTIES:
+:ID:       C0CD213B-A38E-48F9-A1CE-F86246A91001
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (defun org-pm-save-project-data ()
@@ -1982,6 +2106,9 @@ Select a project interactively and post its definition.
 
 
 ** DONE org-pm-reset-project-list / org-pm-clear-project-defs
+:PROPERTIES:
+:ID:       F33352B0-76AC-463B-8654-6F424D9D28C4
+:END:
 
 #+BEGIN_SRC emacs-lisp
   (defun org-pm-reset-project-list ()
@@ -1994,6 +2121,9 @@ Select a project interactively and post its definition.
 
 
 ** DONE org-pm-edit-saved-project-data
+:PROPERTIES:
+:ID:       DBCD55F3-F37D-4E05-8229-C1F965AC61A3
+:END:
 
 Edit the file containing the auto-saved data for org-pom.
 
@@ -2005,8 +2135,11 @@ Edit the file containing the auto-saved data for org-pom.
 #+END_SRC
 
 * TODO auto-export on save
+:PROPERTIES:
+:ID:       A7A2DEB3-3142-4CF0-83BA-D13D5C08688E
+:END:
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle no
   (defun org-pm-auto-export ()
     "Function run after saving a buffer.
   If the main buffer mode is org-mode, and org-pm-auto-save is t, then
@@ -2075,6 +2208,7 @@ CLOSED: [2013-12-19 Thu 09:01]
 ** DONE Get header properties: org-get-header-property
 :PROPERTIES:
 :DATE:     <2013-12-16 Mon 02:50>
+:ID:       21D987BF-7564-4C29-BFAE-14C477310EE9
 :END:
 
 #+BEGIN_SRC emacs-lisp
@@ -2100,6 +2234,7 @@ CLOSED: [2013-12-19 Thu 09:01]
 :PROPERTIES:
 :DATE:     <2014-01-15 Wed 02:32>
 :TEST: 123
+:ID:       7EBC9463-5A35-46AF-BEDE-10C430FA085B
 :END:
 
 #+BEGIN_SRC emacs-lisp
@@ -2117,14 +2252,14 @@ CLOSED: [2013-12-19 Thu 09:01]
 #+RESULTS:
 : org-get-section-properties
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle no
 (org-get-section-properties '("DATE" "TEST"))
 #+END_SRC
 
 #+RESULTS:
 | <2014-01-15 Wed 02:32> | 123 |
 
-#+BEGIN_SRC elisp
+#+BEGIN_SRC elisp :tangle no
   (multiple-value-bind (date test)
       (org-get-section-properties '("DATE" "TEST"))
     test)
@@ -2134,6 +2269,9 @@ CLOSED: [2013-12-19 Thu 09:01]
 : 123
 
 ** TODO Fix grizzl-completing-read prompt argument use
+:PROPERTIES:
+:ID:       E6A7C970-C1B3-434A-86F5-E0D46FE6EBC9
+:END:
 
 #+BEGIN_SRC emacs-lisp
   ;; Fix grizzl-completing-read to display custom prompt
@@ -2165,6 +2303,9 @@ CLOSED: [2013-12-19 Thu 09:01]
 
 
 ** Set state of current heading to COMMENT
+:PROPERTIES:
+:ID:       43FAD804-A006-457F-A368-99F8896F4CEC
+:END:
 
 This function is derived by modifying org-toggle-comment.
 
@@ -2192,12 +2333,18 @@ This function is derived by modifying org-toggle-comment.
 
 
 * Load project data at init time
+:PROPERTIES:
+:ID:       3CB16551-0F3B-45CC-AE25-5C2A5058389E
+:END:
 
 #+BEGIN_SRC emacs-lisp
 (eval-after-load "org-pm" '(org-pm-load-project-data))
 #+END_SRC
 
 * Provide org-pm library
+:PROPERTIES:
+:ID:       9C3181CF-87BB-43C7-B658-5D7A4B0433E9
+:END:
 
 #+BEGIN_SRC emacs-lisp
 (provide 'org-pm)
@@ -2243,6 +2390,9 @@ This function is derived by modifying org-toggle-comment.
 *** static_publishing-function 'org-publish-attachment
 *** static_recursive t
 * emacs-lisp file postbamle
+:PROPERTIES:
+:ID:       CCAE8D78-5EA6-4849-B62E-D866E6F2649D
+:END:
 
 #+BEGIN_SRC emacs-lisp
   ;;; org-pm.el ends here
